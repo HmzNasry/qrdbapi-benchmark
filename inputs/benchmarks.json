@@ -1,6 +1,6 @@
 {
   "config": {
-    "iterations": 10,
+    "iterations": 1,
     "remove_outliers": true,
     "timeout_seconds": 60
   },
@@ -41,7 +41,7 @@
       "name": "MP.BBForSchemeAyah - Ayah Boxes By Surah",
       "endpoints": {
         "mm": null,
-        "fastapi": "/bb-schemes?bb_scheme_id=1&surah_no=1&ayah_no_within_surah=1"
+        "fastapi": "/bb-schemes?bb_scheme_id=1&surah_no=1&ayah_no_in_surah=1"
       }
     },
     {
@@ -55,7 +55,7 @@
       "name": "MP.BBForMushafAyah - Ayah Boxes By Mushaf Surah",
       "endpoints": {
         "mm": null,
-        "fastapi": "/bb-schemes?mushaf_id=1&surah_no=1&ayah_no_within_surah=1"
+        "fastapi": "/bb-schemes?mushaf_id=1&surah_no=1&ayah_no_in_surah=1"
       }
     },
     {
@@ -97,7 +97,7 @@
       "name": "MP.GetMushafAyahPages - Surah Ayah Range",
       "endpoints": {
         "mm": null,
-        "fastapi": "/mushafs/ayah-pages?mushaf_id=1&surah_no=1&ayah_no_within_surah=1"
+        "fastapi": "/mushafs/ayah-pages?mushaf_id=1&surah_no=1&ayah_no_in_surah=1"
       }
     },
     {
@@ -111,7 +111,7 @@
       "name": "MP.SwitchMushaf - Locate By Surah Ayah",
       "endpoints": {
         "mm": null,
-        "fastapi": "/mushafs/switch-mushaf?mushaf_id=1&target_mushaf_id=2&surah_no=1&ayah_no_within_surah=1"
+        "fastapi": "/mushafs/switch-mushaf?mushaf_id=1&target_mushaf_id=2&surah_no=1&ayah_no_in_surah=1"
       }
     },
     {
@@ -125,7 +125,7 @@
       "name": "MP.GetUnicodeAyah - Mushaf Surah Ayah Text",
       "endpoints": {
         "mm": null,
-        "fastapi": "/mushafs/unicode-ayahs?mushaf_id=1&surah_no=1&ayah_no_within_surah=1&font_adjust=true"
+        "fastapi": "/mushafs/unicode-ayahs?mushaf_id=1&surah_no=1&ayah_no_in_surah=1&font_adjust=true"
       }
     },
     {
@@ -139,7 +139,7 @@
       "name": "UG.GetUnicodeAyah - Scheme Surah Ayah Text",
       "endpoints": {
         "mm": null,
-        "fastapi": "/mushafs/unicode-ayahs?counting_scheme=4&surah_no=1&ayah_no_within_surah=1&wajh_id=52&map_id=KFQC%20Hafs&font_adjust=true"
+        "fastapi": "/mushafs/unicode-ayahs?counting_scheme=4&surah_no=1&ayah_no_in_surah=1&wajh_id=52&map_id=KFQC%20Hafs&font_adjust=true"
       }
     },
     {
@@ -265,7 +265,7 @@
       "name": "QR.GetStreamAyahs - By Surah Context",
       "endpoints": {
         "mm": null,
-        "fastapi": "/stream/ayahs?counting_scheme=4&surah_no=1&ayah_no_within_surah=1"
+        "fastapi": "/stream/ayahs?counting_scheme=4&surah_no=1&ayah_no_in_surah=1"
       }
     },
     {
@@ -321,7 +321,7 @@
       "name": "QR.SwitchCountingScheme - Locate Target Ayah By Surah",
       "endpoints": {
         "mm": null,
-        "fastapi": "/stream/ayahs/switch-counting-scheme?source_scheme_id=4&target_scheme_id=14&surah_no=1&ayah_no_within_surah=1"
+        "fastapi": "/stream/ayahs/switch-counting-scheme?source_scheme_id=4&target_scheme_id=14&surah_no=1&ayah_no_in_surah=1"
       }
     },
     {
