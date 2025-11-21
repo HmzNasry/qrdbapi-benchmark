@@ -1,8 +1,8 @@
 {
   "config": {
-    "iterations": 50,
+    "iterations": 10,
     "remove_outliers": true,
-    "timeout_seconds": 20
+    "timeout_seconds": 60
   },
   "systems": {
     "mm": "https://dbapimm.quranresearch.org",
@@ -145,77 +145,77 @@
     {
       "name": "QR.GetCountingSchemes - All Schemes",
       "endpoints": {
-        "mm": null,
+        "mm": "/counting-schemes",
         "fastapi": "/counting-schemes"
       }
     },
     {
       "name": "QR.GetCountingSchemes - Scheme By Id",
       "endpoints": {
-        "mm": null,
+        "mm": "/counting-schemes?scheme-id=4",
         "fastapi": "/counting-schemes?counting_scheme_id=4"
       }
     },
     {
       "name": "QR.GetCountingSchemes - Root Schemes",
       "endpoints": {
-        "mm": null,
+        "mm": "/counting-schemes?filter-by=root",
         "fastapi": "/counting-schemes?filter_by=root"
       }
     },
     {
       "name": "QR.GetCountingSchemes - Leaf Schemes",
       "endpoints": {
-        "mm": null,
+        "mm": "/counting-schemes?filter-by=leaf",
         "fastapi": "/counting-schemes?filter_by=leaf"
       }
     },
     {
       "name": "QR.GetCountingSchemes - Leaves Under Scheme",
       "endpoints": {
-        "mm": null,
+        "mm": "/counting-schemes?filter-by=leaf&scheme-id=4",
         "fastapi": "/counting-schemes?filter_by=leaf&counting_scheme_id=4"
       }
     },
     {
       "name": "QR.GetCountingSchemes - Parent Scheme",
       "endpoints": {
-        "mm": null,
+        "mm": "/counting-schemes?filter-by=parent&scheme-id=4",
         "fastapi": "/counting-schemes?filter_by=parent&counting_scheme_id=4"
       }
     },
     {
       "name": "QR.GetCountingSchemes - Sibling Schemes",
       "endpoints": {
-        "mm": null,
+        "mm": "/counting-schemes?filter-by=siblings&scheme-id=4",
         "fastapi": "/counting-schemes?filter_by=siblings&counting_scheme_id=4"
       }
     },
     {
       "name": "QR.GetCountingSchemes - Child Schemes",
       "endpoints": {
-        "mm": null,
-        "fastapi": "/counting-schemes?filter_by=children&counting_scheme_id=4"
+        "mm": "/counting-schemes?filter-by=children&scheme-id=0",
+        "fastapi": "/counting-schemes?filter_by=children&counting_scheme_id=0"
       }
     },
     {
       "name": "QR.GetCountingSchemes - Chain To Root",
       "endpoints": {
-        "mm": null,
+        "mm": "/counting-schemes?filter-by=chain&scheme-id=4",
         "fastapi": "/counting-schemes?filter_by=chain&counting_scheme_id=4"
       }
     },
     {
       "name": "QR.GetCountingSchemes - Subtree Walk",
       "endpoints": {
-        "mm": null,
+        "mm": "/counting-schemes?filter-by=subtree&scheme-id=4",
         "fastapi": "/counting-schemes?filter_by=subtree&counting_scheme_id=4"
       }
     },
     {
       "name": "QR.GetCountingSchemeStatsQuranLevel - All Schemes",
       "endpoints": {
-        "mm": null,
+        "mm": "/counting-schemes/stats/quran-level",
         "fastapi": "/counting-schemes/stats/quran-level"
       }
     },
@@ -229,14 +229,14 @@
     {
       "name": "QR.GetCountingSchemeStatsSurahLevel - All Schemes",
       "endpoints": {
-        "mm": null,
+        "mm": "/counting-schemes/stats/surah-level",
         "fastapi": "/counting-schemes/stats/surah-level"
       }
     },
     {
       "name": "QR.GetCountingSchemeStatsSurahLevel - Single Scheme",
       "endpoints": {
-        "mm": null,
+        "mm": "/counting-schemes/stats/surah-level?scheme-id=4",
         "fastapi": "/counting-schemes/stats/surah-level?counting_scheme_id=4"
       }
     },
@@ -244,14 +244,14 @@
       "name": "UG.GetCountingSchemeKhulfUnicodes - Surah Defaults",
       "endpoints": {
         "mm": null,
-        "fastapi": "/counting-schemes/unicode-khulf?surah_no=2"
+        "fastapi": "/counting-schemes/unicode-khulf?surah_no=1"
       }
     },
     {
       "name": "UG.GetCountingSchemeKhulfUnicodes - Explicit Rendering",
       "endpoints": {
         "mm": null,
-        "fastapi": "/counting-schemes/unicode-khulf?surah_no=2&counting_scheme_id=4&wajh_id=52&map_id=KFQC%20Hafs&font_adjust=true"
+        "fastapi": "/counting-schemes/unicode-khulf?surah_no=1&counting_scheme_id=4&wajh_id=52&map_id=KFQC%20Hafs&font_adjust=true"
       }
     },
     {
@@ -327,28 +327,28 @@
     {
       "name": "QR.GetStreamWords - Word Boundary In Wajh",
       "endpoints": {
-        "mm": null,
+        "mm": "/stream/words?word-no=1&wajh-id=52",
         "fastapi": "/stream/word?word_no=1&wajh_id=52"
       }
     },
     {
       "name": "QR.GetStreamWords - Word Boundary Across Leaves",
       "endpoints": {
-        "mm": null,
+        "mm": "/stream/words?word-no=1",
         "fastapi": "/stream/word?word_no=1"
       }
     },
     {
       "name": "QR.GetUpStreamWords - Position Lookup",
       "endpoints": {
-        "mm": null,
+        "mm": "/stream/words?position-id=27",
         "fastapi": "/stream/word?position_id=27"
       }
     },
     {
       "name": "QR.GetUpStreamWords - Position Lookup In Wajh",
       "endpoints": {
-        "mm": null,
+        "mm": "/stream/words?position-id=27&wajh-id=52",
         "fastapi": "/stream/word?position_id=27&wajh_id=52"
       }
     },
@@ -369,210 +369,210 @@
     {
       "name": "QR.GetStreamLetters - Leaf Aggregation",
       "endpoints": {
-        "mm": null,
+        "mm": "/stream/letters?position-id=491",
         "fastapi": "/stream/letters?position_id=491"
       }
     },
     {
       "name": "QR.GetStreamLetters - Specific Wajh",
       "endpoints": {
-        "mm": null,
-        "fastapi": "/stream/letters?position_id=491&wajh_id=52"
+        "mm": "/stream/letters?position-id=491&wajh-id=10",
+        "fastapi": "/stream/letters?position_id=491&wajh_id=10"
       }
     },
     {
       "name": "QR.GetStreamProperties - Leaf Aggregation",
       "endpoints": {
-        "mm": null,
+        "mm": "/stream/properties?position-id=27",
         "fastapi": "/stream/properties?position_id=27"
       }
     },
     {
       "name": "QR.GetStreamProperties - Specific Wajh",
       "endpoints": {
-        "mm": null,
+        "mm": "/stream/properties?position-id=27&wajh-id=52",
         "fastapi": "/stream/properties?position_id=27&wajh_id=52"
       }
     },
     {
       "name": "QR.GetStreamSurahs - All Surahs",
       "endpoints": {
-        "mm": null,
+        "mm": "/stream/surahs",
         "fastapi": "/stream/surahs"
       }
     },
     {
       "name": "QR.GetStreamSurahs - Specific Surah",
       "endpoints": {
-        "mm": null,
+        "mm": "/stream/surahs?surah-no=1",
         "fastapi": "/stream/surahs?surah_no=1"
       }
     },
     {
       "name": "QR.GetStreamSurahBoundaries - All Boundaries (Surah Endpoint)",
       "endpoints": {
-        "mm": null,
+        "mm": "/stream/surahs/boundaries",
         "fastapi": "/stream/surahs/boundaries"
       }
     },
     {
       "name": "QR.GetStreamSurahBoundaries - Scheme Only (Surah Endpoint)",
       "endpoints": {
-        "mm": null,
+        "mm": "/stream/surahs/boundaries?scheme-id=4",
         "fastapi": "/stream/surahs/boundaries?scheme_id=4"
       }
     },
     {
       "name": "QR.GetStreamSurahBoundaries - Surah Only (Surah Endpoint)",
       "endpoints": {
-        "mm": null,
+        "mm": "/stream/surahs/boundaries?surah-no=1",
         "fastapi": "/stream/surahs/boundaries?surah_no=1"
       }
     },
     {
       "name": "QR.GetStreamSurahBoundaries - Scheme And Surah (Surah Endpoint)",
       "endpoints": {
-        "mm": null,
+        "mm": "/stream/surahs/boundaries?scheme-id=4&surah-no=1",
         "fastapi": "/stream/surahs/boundaries?scheme_id=4&surah_no=1"
       }
     },
     {
       "name": "QR.GetSurahs - Catalog",
       "endpoints": {
-        "mm": null,
+        "mm": "/surahs",
         "fastapi": "/surahs"
       }
     },
     {
       "name": "QR.GetSurahs - Specific Surah",
       "endpoints": {
-        "mm": null,
+        "mm": "/surahs?surah-no=1",
         "fastapi": "/surahs?surah_no=1"
       }
     },
     {
       "name": "QR.GetLetters - Catalog",
       "endpoints": {
-        "mm": null,
+        "mm": "/letters",
         "fastapi": "/letters"
       }
     },
     {
       "name": "QR.GetLetters - By Letter Id",
       "endpoints": {
-        "mm": null,
+        "mm": "/letters?letter-id=1",
         "fastapi": "/letters?letter_id=1"
       }
     },
     {
       "name": "QR.GetLetters - By Literal",
       "endpoints": {
-        "mm": null,
+        "mm": "/letters?literal=%D8%A7",
         "fastapi": "/letters?literal=%D8%A7"
       }
     },
     {
       "name": "QR.GetProperties - Catalog",
       "endpoints": {
-        "mm": null,
+        "mm": "/properties",
         "fastapi": "/properties"
       }
     },
     {
       "name": "QR.GetProperties - By Id",
       "endpoints": {
-        "mm": null,
+        "mm": "/properties?property-id=11",
         "fastapi": "/properties?property_id=11"
       }
     },
     {
       "name": "QR.GetPropertyTypes - Catalog",
       "endpoints": {
-        "mm": null,
+        "mm": "/property-types",
         "fastapi": "/property-types"
       }
     },
     {
       "name": "QR.GetPropertyTypes - By Id",
       "endpoints": {
-        "mm": null,
+        "mm": "/property-types?property-type-id=1",
         "fastapi": "/property-types?property_type_id=1"
       }
     },
     {
       "name": "QR.GetWajhs - Catalog",
       "endpoints": {
-        "mm": null,
+        "mm": "/wajhs",
         "fastapi": "/wajhs"
       }
     },
     {
       "name": "QR.GetWajhs - Specific Wajh",
       "endpoints": {
-        "mm": null,
+        "mm": "/wajhs?wajh-id=52",
         "fastapi": "/wajhs?wajh_id=52"
       }
     },
     {
       "name": "QR.GetWajhs - Root",
       "endpoints": {
-        "mm": null,
+        "mm": "/wajhs?filter-by=root",
         "fastapi": "/wajhs?filter_by=root"
       }
     },
     {
       "name": "QR.GetWajhs - All Leaves",
       "endpoints": {
-        "mm": null,
+        "mm": "/wajhs?filter-by=leaf",
         "fastapi": "/wajhs?filter_by=leaf"
       }
     },
     {
       "name": "QR.GetWajhs - Leaves Under Wajh",
       "endpoints": {
-        "mm": null,
+        "mm": "/wajhs?filter-by=leaf&wajh-id=50",
         "fastapi": "/wajhs?filter_by=leaf&wajh_id=50"
       }
     },
     {
       "name": "QR.GetWajhs - Parent",
       "endpoints": {
-        "mm": null,
+        "mm": "/wajhs?filter-by=parent&wajh-id=50",
         "fastapi": "/wajhs?filter_by=parent&wajh_id=50"
       }
     },
     {
       "name": "QR.GetWajhs - Siblings",
       "endpoints": {
-        "mm": null,
+        "mm": "/wajhs?filter-by=siblings&wajh-id=50",
         "fastapi": "/wajhs?filter_by=siblings&wajh_id=50"
       }
     },
     {
       "name": "QR.GetWajhs - Children",
       "endpoints": {
-        "mm": null,
+        "mm": "/wajhs?filter-by=children&wajh-id=50",
         "fastapi": "/wajhs?filter_by=children&wajh_id=50"
       }
     },
     {
       "name": "QR.GetWajhs - Chain",
       "endpoints": {
-        "mm": null,
+        "mm": "/wajhs?filter-by=chain&wajh-id=50",
         "fastapi": "/wajhs?filter_by=chain&wajh_id=50"
       }
     },
     {
       "name": "QR.GetWajhs - Subtree",
       "endpoints": {
-        "mm": null,
+        "mm": "/wajhs?filter-by=subtree&wajh-id=50",
         "fastapi": "/wajhs?filter_by=subtree&wajh_id=50"
       }
     },
     {
       "name": "MP.GetWajhDisplayInfos - Layout Metadata",
       "endpoints": {
-        "mm": null,
+        "mm": "/wajhs/display-info",
         "fastapi": "/wajhs/display-info"
       }
     }
