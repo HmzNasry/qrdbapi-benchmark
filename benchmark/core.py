@@ -12,7 +12,6 @@ from rich.progress import (
     SpinnerColumn,
     BarColumn,
     TextColumn,
-    TimeElapsedColumn,
 )
 
 from benchmark.requester import fetch_url
@@ -20,12 +19,11 @@ from benchmark.analyzer import calculate_stats
 
 console = Console()
 
-
 class BenchmarkRunner:
     def __init__(self, config_path: str):
         with open(config_path, "r") as f:
             self.data = json.load(f)
-        
+
         self.config = self.data["config"]
         self.systems = self.data["systems"]
         self.scenarios = self.data["scenarios"]
@@ -45,7 +43,6 @@ class BenchmarkRunner:
         }
 
         console.print(f"[bold green]Starting Benchmark ({self.config['iterations']} iter/req)[/bold green]")
-        
 
         class PendingTimeColumn(ProgressColumn):
             def render(self, task):
@@ -57,11 +54,15 @@ class BenchmarkRunner:
                 ms = int((elapsed * 1000) % 1000)
                 return Text(f"{minutes:02d}:{seconds:02d}:{ms:03d}")
 
+        class IterationColumn(ProgressColumn):
+            def render(self, task):
+                return Text(f"[{task.completed}/{task.total}]")
+
         with Progress(
             SpinnerColumn(),
             TextColumn("[progress.description]{task.description}"),
             BarColumn(),
-            TextColumn("{task.percentage:>3.0f}%"),
+            IterationColumn(),
             PendingTimeColumn(),
             transient=True,
         ) as progress:
@@ -72,7 +73,6 @@ class BenchmarkRunner:
                 
                 progress.console.print(f"[bold cyan]\nScenario: {scen_name}[/bold cyan]")
 
-                # 1. Identify Valid Systems & Create Tasks UP FRONT
                 system_tasks = {}
                 
                 for sys_name, base_url in active_systems.items():
@@ -84,8 +84,9 @@ class BenchmarkRunner:
                         continue
                         
                     task_id = progress.add_task(
-                        f"[magenta]{sys_name}[/magenta]", 
-                        total=self.config["iterations"]
+                        f"[magenta]{sys_name}[/magenta]",
+                        total=self.config["iterations"],
+                        visible=True
                     )
                     system_tasks[sys_name] = {
                         "task_id": task_id,
@@ -107,6 +108,8 @@ class BenchmarkRunner:
                             if error:
                                 errors.append(error)
                             progress.advance(task_id)
+
+                        progress.update(task_id, visible=False)
 
                         stats = calculate_stats(times, self.config["remove_outliers"])
                         
@@ -201,3 +204,4 @@ class BenchmarkRunner:
                     console.print(f"[bold]{sys_name}[/bold]:")
                     for fail in data["failures"]:
                         console.print(f"  - {fail['scenario']}: [red]{fail['error']}[/red]")
+

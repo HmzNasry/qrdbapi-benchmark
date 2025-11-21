@@ -1,12 +1,12 @@
 {
   "config": {
-    "iterations": 10,
+    "iterations": 1,
     "remove_outliers": true,
     "timeout_seconds": 60
   },
   "systems": {
     "mm": "https://dbapimm.quranresearch.org",
-    "fastapi": "http://localhost:8000"
+    "fastapi": "https://dbapi.quranresearch.org"
   },
   "scenarios": [
     {
@@ -103,14 +103,14 @@
     {
       "name": "MP.SwitchMushaf - Locate By Ayah Number",
       "endpoints": {
-        "mm": null,
+        "mm": "/mushafs/switch-mushafs?source-mushaf=1&target-mushaf=2&ayah-no=1",
         "fastapi": "/mushafs/switch-mushaf?mushaf_id=1&target_mushaf_id=2&ayah_no=1"
       }
     },
     {
       "name": "MP.SwitchMushaf - Locate By Surah Ayah",
       "endpoints": {
-        "mm": null,
+        "mm": "/mushafs/switch-mushafs?source-mushaf=1&target-mushaf=2&surah-no=1&ayah-no-in-surah=1",
         "fastapi": "/mushafs/switch-mushaf?mushaf_id=1&target_mushaf_id=2&surah_no=1&ayah_no_within_surah=1"
       }
     },
@@ -243,14 +243,14 @@
     {
       "name": "UG.GetCountingSchemeKhulfUnicodes - Surah Defaults",
       "endpoints": {
-        "mm": null,
+        "mm": "/counting-schemes/stats/ayah-level?surah-no=1",
         "fastapi": "/counting-schemes/unicode-khulf?surah_no=1"
       }
     },
     {
       "name": "UG.GetCountingSchemeKhulfUnicodes - Explicit Rendering",
       "endpoints": {
-        "mm": null,
+        "mm": "/counting-schemes/stats/ayah-level?surah-no=1&counting-scheme=4&wajh-id=52&map-id=KFQC%20Hafs&font-adjust=true",
         "fastapi": "/counting-schemes/unicode-khulf?surah_no=1&counting_scheme_id=4&wajh_id=52&map_id=KFQC%20Hafs&font_adjust=true"
       }
     },
