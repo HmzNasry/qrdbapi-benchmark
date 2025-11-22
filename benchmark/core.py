@@ -139,18 +139,28 @@ class BenchmarkRunner:
         self._print_summary(summary_data)
 
     def _save_results(self, results: dict, timestamp: str, system_names: list[str]):
-        # Create folder name: e.g., "node_vs_go" or "node_vs_python_vs_go"
         folder_name = "_vs_".join(sorted(system_names))
+        base_dir = os.path.join("outputs", folder_name)
+        archive_dir = os.path.join(base_dir, "archive")
         
-        output_dir = os.path.join("outputs", folder_name)
-        os.makedirs(output_dir, exist_ok=True)
+        os.makedirs(archive_dir, exist_ok=True)
         
-        path = f"{output_dir}/results_{timestamp}.json"
+        main_path = os.path.join(base_dir, "results.json")
         
-        with open(path, "w") as f:
+        if os.path.exists(main_path):
+            archive_name = f"results_archived_{timestamp}.json"
+            archive_path = os.path.join(archive_dir, archive_name)
+            
+            try:
+                os.rename(main_path, archive_path)
+                console.print(f"  📦 [dim]Previous run archived to: {archive_path}[/dim]")
+            except OSError as e:
+                console.print(f"  ⚠️ [yellow]Could not archive previous run: {e}[/yellow]")
+        
+        with open(main_path, "w") as f:
             json.dump(results, f, indent=2)
             
-        console.print(f"\n[dim]Full raw data saved to: {path}[/dim]")
+        console.print(f"\n[dim]Full raw data saved to: {main_path}[/dim]")
 
     def _print_summary(self, summary_data: dict):
         has_any_failures = any(len(d["failures"]) > 0 for d in summary_data.values())
