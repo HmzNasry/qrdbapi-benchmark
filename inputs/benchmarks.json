@@ -5,574 +5,546 @@
     "timeout_seconds": 60
   },
   "systems": {
-    "mm": "https://dbapimm.quranresearch.org",
+    "dotnet_mm": "https://dbapimm.quranresearch.org",
     "fastapi_ssd": "https://dbapi.quranresearch.org"
   },
   "scenarios": [
     {
       "name": "MP.BBSchemes - Enumerate Schemes",
       "endpoints": {
-        "mm": "/BBs/SchemeInfos",
+        "dotnet_mm": "/BBs/SchemeInfos",
         "fastapi_ssd": "/bb-schemes"
       }
     },
     {
       "name": "MP.BBForSchemePage - Page Boxes By Scheme",
       "endpoints": {
-        "mm": "/BBs?bb-scheme-id=1&page-no=1",
+        "dotnet_mm": "/BBs?bb-scheme-id=1&page-no=1",
         "fastapi_ssd": "/bb-schemes?bb_scheme_id=1&page_no=1"
       }
     },
     {
       "name": "MP.BBForMushafPage - Page Boxes By Mushaf",
       "endpoints": {
-        "mm": "/BBs?mushaf-id=1&page-no=1",
+        "dotnet_mm": "/BBs?mushaf-id=1&page-no=1",
         "fastapi_ssd": "/bb-schemes?mushaf_id=1&page_no=1"
       }
     },
     {
       "name": "MP.BBForSchemeAyah - Ayah Boxes By Number",
       "endpoints": {
-        "mm": "/BBs?bb-scheme-id=1&ayah-no=1",
+        "dotnet_mm": "/BBs?bb-scheme-id=1&ayah-no=1",
         "fastapi_ssd": "/bb-schemes?bb_scheme_id=1&ayah_no=1"
       }
     },
     {
       "name": "MP.BBForSchemeAyah - Ayah Boxes By Surah",
       "endpoints": {
-        "mm": "/BBs?bb-scheme-id=1&surah-no=1&ayah-no-in-surah=1",
+        "dotnet_mm": "/BBs?bb-scheme-id=1&surah-no=1&ayah-no-in-surah=1",
         "fastapi_ssd": "/bb-schemes?bb_scheme_id=1&surah_no=1&ayah_no_within_surah=1"
       }
     },
     {
       "name": "MP.BBForMushafAyah - Ayah Boxes By Mushaf Number",
       "endpoints": {
-        "mm": "/BBs?mushaf-id=1&ayah-no=1",
+        "dotnet_mm": "/BBs?mushaf-id=1&ayah-no=1",
         "fastapi_ssd": "/bb-schemes?mushaf_id=1&ayah_no=1"
       }
     },
     {
       "name": "MP.BBForMushafAyah - Ayah Boxes By Mushaf Surah",
       "endpoints": {
-        "mm": "/BBs?mushaf-id=1&surah-no=1&ayah-no-in-surah=1",
+        "dotnet_mm": "/BBs?mushaf-id=1&surah-no=1&ayah-no-in-surah=1",
         "fastapi_ssd": "/bb-schemes?mushaf_id=1&surah_no=1&ayah_no_within_surah=1"
       }
     },
     {
       "name": "MP.GetMushafs - All Printed Mushafs",
       "endpoints": {
-        "mm": "/mushafs",
+        "dotnet_mm": "/mushafs",
         "fastapi_ssd": "/mushafs"
       }
     },
     {
       "name": "MP.GetMushafs - Specific Mushaf",
       "endpoints": {
-        "mm": "/mushafs?mushaf-id=1",
+        "dotnet_mm": "/mushafs?mushaf-id=1",
         "fastapi_ssd": "/mushafs?mushaf_id=1"
       }
     },
     {
-      "name": "MP.GetMushafSurahPages - Surah Summary",
+      "name": "MP.GetMushafSurahPages - Surah Sudotnet_mmary",
       "endpoints": {
-        "mm": "/mushafs/surah-pages?mushaf-id=1",
+        "dotnet_mm": "/mushafs/surah-pages?mushaf-id=1",
         "fastapi_ssd": "/mushafs/surah-pages?mushaf_id=1"
       }
     },
     {
       "name": "MP.GetMushafSurahPages - Surah Range",
       "endpoints": {
-        "mm": "/mushafs/surah-pages?mushaf-id=1&surah-no=1",
+        "dotnet_mm": "/mushafs/surah-pages?mushaf-id=1&surah-no=1",
         "fastapi_ssd": "/mushafs/surah-pages?mushaf_id=1&surah_no=1"
       }
     },
     {
       "name": "MP.GetMushafAyahPages - Ayah Range",
       "endpoints": {
-        "mm": "/mushafs/ayah-pages?mushaf-id=1&ayah-no=1",
+        "dotnet_mm": "/mushafs/ayah-pages?mushaf-id=1&ayah-no=1",
         "fastapi_ssd": "/mushafs/ayah-pages?mushaf_id=1&ayah_no=1"
       }
     },
     {
       "name": "MP.GetMushafAyahPages - Surah Ayah Range",
       "endpoints": {
-        "mm": "/mushafs/ayah-pages?mushaf-id=1&surah-no=1&ayah-no-in-surah=1",
+        "dotnet_mm": "/mushafs/ayah-pages?mushaf-id=1&surah-no=1&ayah-no-in-surah=1",
         "fastapi_ssd": "/mushafs/ayah-pages?mushaf_id=1&surah_no=1&ayah_no_within_surah=1"
       }
     },
     {
       "name": "MP.SwitchMushaf - Locate By Ayah Number",
       "endpoints": {
-        "mm": "/mushafs/switch-mushafs?source-mushaf=1&target-mushaf=2&ayah-no=1",
+        "dotnet_mm": "/mushafs/switch-mushafs?source-mushaf=1&target-mushaf=2&ayah-no=1",
         "fastapi_ssd": "/mushafs/switch-mushaf?mushaf_id=1&target_mushaf_id=2&ayah_no=1"
       }
     },
     {
       "name": "MP.SwitchMushaf - Locate By Surah Ayah",
       "endpoints": {
-        "mm": "/mushafs/switch-mushafs?source-mushaf=1&target-mushaf=2&surah-no=1&ayah-no-in-surah=1",
+        "dotnet_mm": "/mushafs/switch-mushafs?source-mushaf=1&target-mushaf=2&surah-no=1&ayah-no-in-surah=1",
         "fastapi_ssd": "/mushafs/switch-mushaf?mushaf_id=1&target_mushaf_id=2&surah_no=1&ayah_no_within_surah=1"
       }
     },
     {
       "name": "MP.GetUnicodeAyah - Mushaf Ayah Text",
       "endpoints": {
-        "mm": "/mushafs/unicodes?mushaf-id=1&ayah-no=1&font-adjust=true",
+        "dotnet_mm": "/mushafs/unicodes?mushaf-id=1&ayah-no=1&font-adjust=true",
         "fastapi_ssd": "/mushafs/unicode-ayahs?mushaf_id=1&ayah_no=1&font_adjust=true"
       }
     },
     {
       "name": "MP.GetUnicodeAyah - Mushaf Surah Ayah Text",
       "endpoints": {
-        "mm": "/mushafs/unicodes?mushaf-id=1&surah-no=1&ayah-no-in-surah=1&font-adjust=true",
+        "dotnet_mm": "/mushafs/unicodes?mushaf-id=1&surah-no=1&ayah-no-in-surah=1&font-adjust=true",
         "fastapi_ssd": "/mushafs/unicode-ayahs?mushaf_id=1&surah_no=1&ayah_no_within_surah=1&font_adjust=true"
       }
     },
     {
       "name": "UG.GetUnicodeAyah - Scheme Ayah Text",
       "endpoints": {
-        "mm": "/unicodes/ayahs?counting-scheme=4&ayah-no=1&wajh-id=52&map-id=KFQC%20Hafs&font-adjust=true",
+        "dotnet_mm": "/unicodes/ayahs?counting-scheme=4&ayah-no=1&wajh-id=52&map-id=KFQC%20Hafs&font-adjust=true",
         "fastapi_ssd": "/mushafs/unicode-ayahs?counting_scheme=4&ayah_no=1&wajh_id=52&map_id=KFQC%20Hafs&font_adjust=true"
       }
     },
     {
       "name": "UG.GetUnicodeAyah - Scheme Surah Ayah Text",
       "endpoints": {
-        "mm": "/unicodes/ayahs?counting-scheme=4&surah-no=1&ayah-no-in-surah=1&wajh-id=52&map-id=KFQC%20Hafs&font-adjust=true",
+        "dotnet_mm": "/unicodes/ayahs?counting-scheme=4&surah-no=1&ayah-no-in-surah=1&wajh-id=52&map-id=KFQC%20Hafs&font-adjust=true",
         "fastapi_ssd": "/mushafs/unicode-ayahs?counting_scheme=4&surah_no=1&ayah_no_within_surah=1&wajh_id=52&map_id=KFQC%20Hafs&font_adjust=true"
       }
     },
     {
       "name": "QR.GetCountingSchemes - All Schemes",
       "endpoints": {
-        "mm": "/counting-schemes",
+        "dotnet_mm": "/counting-schemes",
         "fastapi_ssd": "/counting-schemes"
       }
     },
     {
       "name": "QR.GetCountingSchemes - Scheme By Id",
       "endpoints": {
-        "mm": "/counting-schemes?scheme-id=4",
+        "dotnet_mm": "/counting-schemes?scheme-id=4",
         "fastapi_ssd": "/counting-schemes?counting_scheme_id=4"
       }
     },
     {
       "name": "QR.GetCountingSchemes - Root Schemes",
       "endpoints": {
-        "mm": "/counting-schemes?filter-by=root",
+        "dotnet_mm": "/counting-schemes?filter-by=root",
         "fastapi_ssd": "/counting-schemes?filter_by=root"
       }
     },
     {
       "name": "QR.GetCountingSchemes - Leaf Schemes",
       "endpoints": {
-        "mm": "/counting-schemes?filter-by=leaf",
+        "dotnet_mm": "/counting-schemes?filter-by=leaf",
         "fastapi_ssd": "/counting-schemes?filter_by=leaf"
       }
     },
     {
       "name": "QR.GetCountingSchemes - Leaves Under Scheme",
       "endpoints": {
-        "mm": "/counting-schemes?filter-by=leaf&scheme-id=4",
+        "dotnet_mm": "/counting-schemes?filter-by=leaf&scheme-id=4",
         "fastapi_ssd": "/counting-schemes?filter_by=leaf&counting_scheme_id=4"
       }
     },
     {
       "name": "QR.GetCountingSchemes - Parent Scheme",
       "endpoints": {
-        "mm": "/counting-schemes?filter-by=parent&scheme-id=4",
+        "dotnet_mm": "/counting-schemes?filter-by=parent&scheme-id=4",
         "fastapi_ssd": "/counting-schemes?filter_by=parent&counting_scheme_id=4"
       }
     },
     {
       "name": "QR.GetCountingSchemes - Sibling Schemes",
       "endpoints": {
-        "mm": "/counting-schemes?filter-by=siblings&scheme-id=4",
+        "dotnet_mm": "/counting-schemes?filter-by=siblings&scheme-id=4",
         "fastapi_ssd": "/counting-schemes?filter_by=siblings&counting_scheme_id=4"
       }
     },
     {
       "name": "QR.GetCountingSchemes - Child Schemes",
       "endpoints": {
-        "mm": "/counting-schemes?filter-by=children&scheme-id=0",
+        "dotnet_mm": "/counting-schemes?filter-by=children&scheme-id=0",
         "fastapi_ssd": "/counting-schemes?filter_by=children&counting_scheme_id=0"
       }
     },
     {
       "name": "QR.GetCountingSchemes - Chain To Root",
       "endpoints": {
-        "mm": "/counting-schemes?filter-by=chain&scheme-id=4",
+        "dotnet_mm": "/counting-schemes?filter-by=chain&scheme-id=4",
         "fastapi_ssd": "/counting-schemes?filter_by=chain&counting_scheme_id=4"
       }
     },
     {
       "name": "QR.GetCountingSchemes - Subtree Walk",
       "endpoints": {
-        "mm": "/counting-schemes?filter-by=subtree&scheme-id=4",
+        "dotnet_mm": "/counting-schemes?filter-by=subtree&scheme-id=4",
         "fastapi_ssd": "/counting-schemes?filter_by=subtree&counting_scheme_id=4"
       }
     },
     {
       "name": "QR.GetCountingSchemeStatsQuranLevel - All Schemes",
       "endpoints": {
-        "mm": "/counting-schemes/stats/quran-level",
+        "dotnet_mm": "/counting-schemes/stats/quran-level",
         "fastapi_ssd": "/counting-schemes/stats/quran-level"
       }
     },
     {
       "name": "QR.GetCountingSchemeStatsQuranLevel - Single Scheme",
       "endpoints": {
-        "mm": "/counting-schemes/stats/quran-level?scheme-id=4",
+        "dotnet_mm": "/counting-schemes/stats/quran-level?scheme-id=4",
         "fastapi_ssd": "/counting-schemes/stats/quran-level?counting_scheme_id=4"
       }
     },
     {
       "name": "QR.GetCountingSchemeStatsSurahLevel - All Schemes",
       "endpoints": {
-        "mm": "/counting-schemes/stats/surah-level",
+        "dotnet_mm": "/counting-schemes/stats/surah-level",
         "fastapi_ssd": "/counting-schemes/stats/surah-level"
       }
     },
     {
       "name": "QR.GetCountingSchemeStatsSurahLevel - Single Scheme",
       "endpoints": {
-        "mm": "/counting-schemes/stats/surah-level?scheme-id=4",
+        "dotnet_mm": "/counting-schemes/stats/surah-level?scheme-id=4",
         "fastapi_ssd": "/counting-schemes/stats/surah-level?counting_scheme_id=4"
       }
     },
     {
       "name": "UG.GetCountingSchemeKhulfUnicodes - Surah Defaults",
       "endpoints": {
-        "mm": "/counting-schemes/stats/ayah-level?surah-no=1",
+        "dotnet_mm": "/counting-schemes/stats/ayah-level?surah-no=1",
         "fastapi_ssd": "/counting-schemes/unicode-khulf?surah_no=1"
       }
     },
     {
       "name": "UG.GetCountingSchemeKhulfUnicodes - Explicit Rendering",
       "endpoints": {
-        "mm": "/counting-schemes/stats/ayah-level?surah-no=1&counting-scheme=4&wajh-id=52&map-id=KFQC%20Hafs&font-adjust=true",
+        "dotnet_mm": "/counting-schemes/stats/ayah-level?surah-no=1&counting-scheme=4&wajh-id=52&map-id=KFQC%20Hafs&font-adjust=true",
         "fastapi_ssd": "/counting-schemes/unicode-khulf?surah_no=1&counting_scheme_id=4&wajh_id=52&map_id=KFQC%20Hafs&font_adjust=true"
       }
     },
     {
       "name": "QR.GetStreamAyahs - By Ayah Number",
       "endpoints": {
-        "mm": "/stream/ayahs?counting-scheme=4&ayah-no=1",
+        "dotnet_mm": "/stream/ayahs?counting-scheme=4&ayah-no=1",
         "fastapi_ssd": "/stream/ayahs?counting_scheme=4&ayah_no=1"
       }
     },
     {
       "name": "QR.GetStreamAyahs - By Surah Context",
       "endpoints": {
-        "mm": "/stream/ayahs?counting-scheme=4&surah-no=1&ayah-no-in-surah=1",
+        "dotnet_mm": "/stream/ayahs?counting-scheme=4&surah-no=1&ayah-no-in-surah=1",
         "fastapi_ssd": "/stream/ayahs?counting_scheme=4&surah_no=1&ayah_no_within_surah=1"
       }
     },
     {
       "name": "QR.GetUpStreamAyahs - Word Lookup",
       "endpoints": {
-        "mm": "/stream/ayahs?word-no=21",
+        "dotnet_mm": "/stream/ayahs?word-no=21",
         "fastapi_ssd": "/stream/ayahs?word_no=21"
       }
     },
     {
       "name": "QR.GetUpStreamAyahs - Word Lookup In Scheme",
       "endpoints": {
-        "mm": "/stream/ayahs?word-no=21&counting-scheme=4",
+        "dotnet_mm": "/stream/ayahs?word-no=21&counting-scheme=4",
         "fastapi_ssd": "/stream/ayahs?word_no=21&counting_scheme=4"
-      }
-    },
-    {
-      "name": "QR.GetStreamSurahBoundaries - All Boundaries (Ayah Endpoint)",
-      "endpoints": {
-        "mm": null,
-        "fastapi_ssd": "/stream/ayahs/boundaries"
-      }
-    },
-    {
-      "name": "QR.GetStreamSurahBoundaries - Scheme Only (Ayah Endpoint)",
-      "endpoints": {
-        "mm": null,
-        "fastapi_ssd": "/stream/ayahs/boundaries?scheme_id=4"
-      }
-    },
-    {
-      "name": "QR.GetStreamSurahBoundaries - Surah Only (Ayah Endpoint)",
-      "endpoints": {
-        "mm": null,
-        "fastapi_ssd": "/stream/ayahs/boundaries?surah_no=1"
-      }
-    },
-    {
-      "name": "QR.GetStreamSurahBoundaries - Scheme And Surah (Ayah Endpoint)",
-      "endpoints": {
-        "mm": null,
-        "fastapi_ssd": "/stream/ayahs/boundaries?scheme_id=4&surah_no=1"
       }
     },
     {
       "name": "QR.SwitchCountingScheme - Locate Target Ayah By Number",
       "endpoints": {
-        "mm": "/stream/ayahs/switch-counting-schemes?source-scheme=4&target-scheme=14&ayah-no=1",
+        "dotnet_mm": "/stream/ayahs/switch-counting-schemes?source-scheme=4&target-scheme=14&ayah-no=1",
         "fastapi_ssd": "/stream/ayahs/switch-counting-scheme?source_scheme_id=4&target_scheme_id=14&ayah_no=1"
       }
     },
     {
       "name": "QR.SwitchCountingScheme - Locate Target Ayah By Surah",
       "endpoints": {
-        "mm": "/stream/ayahs/switch-counting-schemes?source-scheme=4&target-scheme=14&surah-no=1&ayah-no-in-surah=1",
+        "dotnet_mm": "/stream/ayahs/switch-counting-schemes?source-scheme=4&target-scheme=14&surah-no=1&ayah-no-in-surah=1",
         "fastapi_ssd": "/stream/ayahs/switch-counting-scheme?source_scheme_id=4&target_scheme_id=14&surah_no=1&ayah_no_within_surah=1"
       }
     },
     {
       "name": "QR.GetStreamWords - Word Boundary In Wajh",
       "endpoints": {
-        "mm": "/stream/words?word-no=1&wajh-id=52",
+        "dotnet_mm": "/stream/words?word-no=1&wajh-id=52",
         "fastapi_ssd": "/stream/word?word_no=1&wajh_id=52"
       }
     },
     {
       "name": "QR.GetStreamWords - Word Boundary Across Leaves",
       "endpoints": {
-        "mm": "/stream/words?word-no=1",
+        "dotnet_mm": "/stream/words?word-no=1",
         "fastapi_ssd": "/stream/word?word_no=1"
       }
     },
     {
       "name": "QR.GetUpStreamWords - Position Lookup",
       "endpoints": {
-        "mm": "/stream/words?position-id=27",
+        "dotnet_mm": "/stream/words?position-id=27",
         "fastapi_ssd": "/stream/word?position_id=27"
       }
     },
     {
       "name": "QR.GetUpStreamWords - Position Lookup In Wajh",
       "endpoints": {
-        "mm": "/stream/words?position-id=27&wajh-id=52",
+        "dotnet_mm": "/stream/words?position-id=27&wajh-id=52",
         "fastapi_ssd": "/stream/word?position_id=27&wajh_id=52"
       }
     },
     {
       "name": "UG.GetUnicodeWord - Default Font Handling",
       "endpoints": {
-        "mm": "/unicodes/words?word-no=1&wajh-id=50&map-id=KFQC%20Hafs",
+        "dotnet_mm": "/unicodes/words?word-no=1&wajh-id=50&map-id=KFQC%20Hafs",
         "fastapi_ssd": "/stream/unicode-words?word_no=1&wajh_id=50&map_id=KFQC%20Hafs"
       }
     },
     {
       "name": "UG.GetUnicodeWord - Font Hacks Enabled",
       "endpoints": {
-        "mm": "/unicodes/words?word-no=1&wajh-id=50&map-id=KFQC%20Hafs&font-adjust=true",
+        "dotnet_mm": "/unicodes/words?word-no=1&wajh-id=50&map-id=KFQC%20Hafs&font-adjust=true",
         "fastapi_ssd": "/stream/unicode-words?word_no=1&wajh_id=50&map_id=KFQC%20Hafs&font_adjust=true"
       }
     },
     {
       "name": "QR.GetStreamLetters - Leaf Aggregation",
       "endpoints": {
-        "mm": "/stream/letters?position-id=491",
+        "dotnet_mm": "/stream/letters?position-id=491",
         "fastapi_ssd": "/stream/letters?position_id=491"
       }
     },
     {
       "name": "QR.GetStreamLetters - Specific Wajh",
       "endpoints": {
-        "mm": "/stream/letters?position-id=491&wajh-id=10",
+        "dotnet_mm": "/stream/letters?position-id=491&wajh-id=10",
         "fastapi_ssd": "/stream/letters?position_id=491&wajh_id=10"
       }
     },
     {
       "name": "QR.GetStreamProperties - Leaf Aggregation",
       "endpoints": {
-        "mm": "/stream/properties?position-id=27",
+        "dotnet_mm": "/stream/properties?position-id=27",
         "fastapi_ssd": "/stream/properties?position_id=27"
       }
     },
     {
       "name": "QR.GetStreamProperties - Specific Wajh",
       "endpoints": {
-        "mm": "/stream/properties?position-id=27&wajh-id=52",
+        "dotnet_mm": "/stream/properties?position-id=27&wajh-id=52",
         "fastapi_ssd": "/stream/properties?position_id=27&wajh_id=52"
       }
     },
     {
       "name": "QR.GetStreamSurahs - All Surahs",
       "endpoints": {
-        "mm": "/stream/surahs",
+        "dotnet_mm": "/stream/surahs",
         "fastapi_ssd": "/stream/surahs"
       }
     },
     {
       "name": "QR.GetStreamSurahs - Specific Surah",
       "endpoints": {
-        "mm": "/stream/surahs?surah-no=1",
+        "dotnet_mm": "/stream/surahs?surah-no=1",
         "fastapi_ssd": "/stream/surahs?surah_no=1"
       }
     },
     {
-      "name": "QR.GetStreamSurahBoundaries - All Boundaries (Surah Endpoint)",
+      "name": "QR.GetStreamSurahBoundaries - All Boundaries",
       "endpoints": {
-        "mm": "/stream/surahs/boundaries",
+        "dotnet_mm": "/stream/surahs/boundaries",
         "fastapi_ssd": "/stream/surahs/boundaries"
       }
     },
     {
-      "name": "QR.GetStreamSurahBoundaries - Scheme Only (Surah Endpoint)",
+      "name": "QR.GetStreamSurahBoundaries - Scheme Only",
       "endpoints": {
-        "mm": "/stream/surahs/boundaries?scheme-id=4",
+        "dotnet_mm": "/stream/surahs/boundaries?scheme-id=4",
         "fastapi_ssd": "/stream/surahs/boundaries?scheme_id=4"
       }
     },
     {
-      "name": "QR.GetStreamSurahBoundaries - Surah Only (Surah Endpoint)",
+      "name": "QR.GetStreamSurahBoundaries - Surah Only",
       "endpoints": {
-        "mm": "/stream/surahs/boundaries?surah-no=1",
+        "dotnet_mm": "/stream/surahs/boundaries?surah-no=1",
         "fastapi_ssd": "/stream/surahs/boundaries?surah_no=1"
       }
     },
     {
-      "name": "QR.GetStreamSurahBoundaries - Scheme And Surah (Surah Endpoint)",
+      "name": "QR.GetStreamSurahBoundaries - Scheme And Surah",
       "endpoints": {
-        "mm": "/stream/surahs/boundaries?scheme-id=4&surah-no=1",
+        "dotnet_mm": "/stream/surahs/boundaries?scheme-id=4&surah-no=1",
         "fastapi_ssd": "/stream/surahs/boundaries?scheme_id=4&surah_no=1"
       }
     },
     {
       "name": "QR.GetSurahs - Catalog",
       "endpoints": {
-        "mm": "/surahs",
+        "dotnet_mm": "/surahs",
         "fastapi_ssd": "/surahs"
       }
     },
     {
       "name": "QR.GetSurahs - Specific Surah",
       "endpoints": {
-        "mm": "/surahs?surah-no=1",
+        "dotnet_mm": "/surahs?surah-no=1",
         "fastapi_ssd": "/surahs?surah_no=1"
       }
     },
     {
       "name": "QR.GetLetters - Catalog",
       "endpoints": {
-        "mm": "/letters",
+        "dotnet_mm": "/letters",
         "fastapi_ssd": "/letters"
       }
     },
     {
       "name": "QR.GetLetters - By Letter Id",
       "endpoints": {
-        "mm": "/letters?letter-id=1",
+        "dotnet_mm": "/letters?letter-id=1",
         "fastapi_ssd": "/letters?letter_id=1"
       }
     },
     {
       "name": "QR.GetLetters - By Literal",
       "endpoints": {
-        "mm": "/letters?literal=%D8%A7",
+        "dotnet_mm": "/letters?literal=%D8%A7",
         "fastapi_ssd": "/letters?literal=%D8%A7"
       }
     },
     {
       "name": "QR.GetProperties - Catalog",
       "endpoints": {
-        "mm": "/properties",
+        "dotnet_mm": "/properties",
         "fastapi_ssd": "/properties"
       }
     },
     {
       "name": "QR.GetProperties - By Id",
       "endpoints": {
-        "mm": "/properties?property-id=11",
+        "dotnet_mm": "/properties?property-id=11",
         "fastapi_ssd": "/properties?property_id=11"
       }
     },
     {
       "name": "QR.GetPropertyTypes - Catalog",
       "endpoints": {
-        "mm": "/property-types",
+        "dotnet_mm": "/property-types",
         "fastapi_ssd": "/property-types"
       }
     },
     {
       "name": "QR.GetPropertyTypes - By Id",
       "endpoints": {
-        "mm": "/property-types?property-type-id=1",
+        "dotnet_mm": "/property-types?property-type-id=1",
         "fastapi_ssd": "/property-types?property_type_id=1"
       }
     },
     {
       "name": "QR.GetWajhs - Catalog",
       "endpoints": {
-        "mm": "/wajhs",
+        "dotnet_mm": "/wajhs",
         "fastapi_ssd": "/wajhs"
       }
     },
     {
       "name": "QR.GetWajhs - Specific Wajh",
       "endpoints": {
-        "mm": "/wajhs?wajh-id=52",
+        "dotnet_mm": "/wajhs?wajh-id=52",
         "fastapi_ssd": "/wajhs?wajh_id=52"
       }
     },
     {
       "name": "QR.GetWajhs - Root",
       "endpoints": {
-        "mm": "/wajhs?filter-by=root",
+        "dotnet_mm": "/wajhs?filter-by=root",
         "fastapi_ssd": "/wajhs?filter_by=root"
       }
     },
     {
       "name": "QR.GetWajhs - All Leaves",
       "endpoints": {
-        "mm": "/wajhs?filter-by=leaf",
+        "dotnet_mm": "/wajhs?filter-by=leaf",
         "fastapi_ssd": "/wajhs?filter_by=leaf"
       }
     },
     {
       "name": "QR.GetWajhs - Leaves Under Wajh",
       "endpoints": {
-        "mm": "/wajhs?filter-by=leaf&wajh-id=50",
+        "dotnet_mm": "/wajhs?filter-by=leaf&wajh-id=50",
         "fastapi_ssd": "/wajhs?filter_by=leaf&wajh_id=50"
       }
     },
     {
       "name": "QR.GetWajhs - Parent",
       "endpoints": {
-        "mm": "/wajhs?filter-by=parent&wajh-id=50",
+        "dotnet_mm": "/wajhs?filter-by=parent&wajh-id=50",
         "fastapi_ssd": "/wajhs?filter_by=parent&wajh_id=50"
       }
     },
     {
       "name": "QR.GetWajhs - Siblings",
       "endpoints": {
-        "mm": "/wajhs?filter-by=siblings&wajh-id=50",
+        "dotnet_mm": "/wajhs?filter-by=siblings&wajh-id=50",
         "fastapi_ssd": "/wajhs?filter_by=siblings&wajh_id=50"
       }
     },
     {
       "name": "QR.GetWajhs - Children",
       "endpoints": {
-        "mm": "/wajhs?filter-by=children&wajh-id=50",
+        "dotnet_mm": "/wajhs?filter-by=children&wajh-id=50",
         "fastapi_ssd": "/wajhs?filter_by=children&wajh_id=50"
       }
     },
     {
       "name": "QR.GetWajhs - Chain",
       "endpoints": {
-        "mm": "/wajhs?filter-by=chain&wajh-id=50",
+        "dotnet_mm": "/wajhs?filter-by=chain&wajh-id=50",
         "fastapi_ssd": "/wajhs?filter_by=chain&wajh_id=50"
       }
     },
     {
       "name": "QR.GetWajhs - Subtree",
       "endpoints": {
-        "mm": "/wajhs?filter-by=subtree&wajh-id=50",
+        "dotnet_mm": "/wajhs?filter-by=subtree&wajh-id=50",
         "fastapi_ssd": "/wajhs?filter_by=subtree&wajh_id=50"
       }
     },
     {
       "name": "MP.GetWajhDisplayInfos - Layout Metadata",
       "endpoints": {
-        "mm": "/wajhs/display-info",
+        "dotnet_mm": "/wajhs/display-info",
         "fastapi_ssd": "/wajhs/display-info"
       }
     }

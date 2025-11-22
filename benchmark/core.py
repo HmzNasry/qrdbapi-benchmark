@@ -79,7 +79,6 @@ class BenchmarkRunner:
                     endpoint = scenario["endpoints"].get(sys_name)
                     
                     if not endpoint:
-                        progress.console.print(f"  ⏭️  [dim]{sys_name}: SKIPPED (No endpoint)[/dim]")
                         results[scen_name][sys_name] = "SKIPPED"
                         continue
                         
@@ -114,23 +113,55 @@ class BenchmarkRunner:
                         stats = calculate_stats(times, self.config["remove_outliers"])
                         
                         if stats:
-                            progress.console.print(
-                                f"  ✅ [green]{sys_name:<10}[/green] "
-                                f"Avg: [bold]{stats['mean']:.4f}s[/bold] | "
-                                f"P99: {stats['p99']:.4f}s | "
-                                f"Min: {stats['min']:.4f}s"
-                            )
                             results[scen_name][sys_name] = stats
                             summary_data[sys_name]["means"].append(stats["mean"])
                         else:
                             primary_error = max(set(errors), key=errors.count) if errors else "Unknown Error"
-                            progress.console.print(f"  ❌ [red]{sys_name:<10}[/red] FAILED: {primary_error}")
                             results[scen_name][sys_name] = {"error": primary_error}
-                            
                             summary_data[sys_name]["failures"].append({
                                 "scenario": scen_name,
                                 "error": primary_error
                             })
+
+                valid_runs = [
+                    (sys, data) 
+                    for sys, data in results[scen_name].items() 
+                    if isinstance(data, dict) and "mean" in data
+                ]
+                
+                if len(valid_runs) >= 2:
+                    valid_runs.sort(key=lambda x: x[1]["mean"])
+                    best_sys, best_stats = valid_runs[0]
+                    runner_up_sys, runner_up_stats = valid_runs[1]
+                    
+                    if best_stats["mean"] < (runner_up_stats["mean"] * 0.9):
+                        results[scen_name][best_sys]["is_winner"] = True
+
+                for sys_name in active_systems:
+                    if sys_name not in system_tasks:
+                        if results[scen_name].get(sys_name) == "SKIPPED":
+                            progress.console.print(f"  ⏭️  [dim]{sys_name}: SKIPPED (No endpoint)[/dim]")
+                        continue
+
+                    res = results[scen_name].get(sys_name)
+                    
+                    if "error" in res:
+                        progress.console.print(f"  ❌ [red]{sys_name:<10}[/red] FAILED: {res['error']}")
+                        continue
+
+                    if res.get("is_winner"):
+                        icon = "👑"
+                        style = "bold yellow"
+                    else:
+                        icon = "✅"
+                        style = "green"
+                    
+                    progress.console.print(
+                        f"  {icon} [{style}]{sys_name:<10}[/{style}] "
+                        f"Avg: [bold]{res['mean']:.4f}s[/bold] | "
+                        f"P99: {res['p99']:.4f}s | "
+                        f"Min: {res['min']:.4f}s"
+                    )
 
                 for info in system_tasks.values():
                     progress.remove_task(info["task_id"])

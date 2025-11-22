@@ -2,7 +2,6 @@ import json
 import plotly.graph_objects as go
 from pathlib import Path
 
-
 def generate_chart(json_path: str):
     """
     Generates an interactive HTML horizontal bar chart using Plotly.
@@ -12,7 +11,6 @@ def generate_chart(json_path: str):
 
     scenarios = list(data.keys())
     
-    # Get all unique systems present in the file
     systems = set()
     for scen in data.values():
         for sys_name in scen.keys():
@@ -24,15 +22,19 @@ def generate_chart(json_path: str):
     for sys in systems:
         means = []
         hover_texts = []
+        bar_texts = []
         
         for scen in scenarios:
             result = data[scen].get(sys)
             
             if isinstance(result, dict) and "mean" in result:
                 means.append(result["mean"])
-                # Rich tooltip data
+                
+                marker = " 👑" if result.get("is_winner") else ""
+                bar_texts.append(marker)
+                
                 text = (
-                    f"<b>{sys.upper()}</b><br>"
+                    f"<b>{sys.upper()}{marker}</b><br>"
                     f"Mean: {result['mean']:.4f}s<br>"
                     f"P99:  {result['p99']:.4f}s<br>"
                     f"Min:  {result['min']:.4f}s<br>"
@@ -41,6 +43,7 @@ def generate_chart(json_path: str):
                 hover_texts.append(text)
             else:
                 means.append(0)
+                bar_texts.append("")
                 status = result if isinstance(result, str) else "N/A"
                 hover_texts.append(f"<b>{sys.upper()}</b><br>Status: {status}")
 
@@ -51,6 +54,8 @@ def generate_chart(json_path: str):
             orientation='h',
             hoverinfo="text",
             hovertext=hover_texts,
+            text=bar_texts,
+            textposition='outside',
         ))
 
     dynamic_height = max(800, len(scenarios) * 30)
